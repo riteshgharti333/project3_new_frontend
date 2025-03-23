@@ -14,6 +14,7 @@ import "swiper/css/effect-fade";
 import axios from "axios";
 import { baseUrl } from "../../../main";
 import toast from "react-hot-toast";
+import SEO from "../../../SEO/SEO";
 
 const Service5 = () => {
   const contentRef = useRef(null);
@@ -47,6 +48,14 @@ const Service5 = () => {
 
   return (
     <div className="service5">
+      <SEO
+        title="Civil Marriage Photography | TK Production Film - Capture Your Special Day with Elegance"
+        description="Preserve the memories of your civil marriage with TK Production Film. Expert photography capturing every emotion and detail. Book your session today!"
+        keywords="civil marriage photography, wedding photography, marriage portraits, TK Production Film, elegant civil wedding photos"
+        url="https://tkproductionfilm.com/civil-marriage-photography"
+        author="TK Production Film"
+      />
+
       <div className="service5-top-banner">
         <div className="service5-banner">
           <div className="service5-banner-desc">

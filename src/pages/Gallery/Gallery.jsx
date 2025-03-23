@@ -7,6 +7,8 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { gallery } from "../../assets/data";
 import axios from "axios";
 import { baseUrl } from "../../main";
+import SEO from "../../SEO/SEO";
+import { useLocation } from "react-router-dom";
 
 const Gallery = () => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -40,8 +42,18 @@ const Gallery = () => {
 
   const currentCards = allPortfolio.slice(offset, offset + cardsPerPage);
 
+  const location = useLocation();
+
   return (
     <div className="gallery">
+      <SEO
+        title="Gallery | TK Production Film - Best Photography & Cinematography"
+        description="Explore the stunning gallery of TK Production Film showcasing top-quality images from weddings, pre-weddings, engagements, baby showers, birthdays, and more. Book your service today!"
+        keywords="photography gallery, wedding images, pre-wedding photos, engagement portraits, baby shower pictures, birthday event gallery, TK Production Film gallery"
+        url={`https://tkproductionfilm.com${location.pathname}`}
+        author="TK Production Film"
+      />
+
       <div className="gallery-top-banner">
         <div className="gallery-banner">
           <div className="gallery-banner-desc">
@@ -63,6 +75,7 @@ const Gallery = () => {
                 alt="portfolio image"
                 onClick={() => setSelectedImg(item.image)}
                 loading="lazy"
+                decoding="async"
               />
             </div>
           ))}

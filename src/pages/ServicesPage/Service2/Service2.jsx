@@ -18,6 +18,7 @@ import axios from "axios";
 import { TbCodeAsterisk } from "react-icons/tb";
 import { useState } from "react";
 import toast from "react-hot-toast";
+import SEO from "../../../SEO/SEO";
 
 const Service2 = () => {
   const contentRef = useRef(null);
@@ -70,6 +71,14 @@ const Service2 = () => {
 
   return (
     <div className="service2">
+      <SEO
+        title="Wedding Cinematography | TK Production Film - Capture Your Love Story in Motion"
+        description="Relive your wedding day with TK Production Film's cinematic wedding cinematography. We create stunning, high-quality wedding films that capture every emotion. Book now!"
+        keywords="wedding cinematography, cinematic wedding films, professional wedding videography, TK Production Film, wedding day videos, cinematic love stories"
+        url="https://tkproductionfilm.com/wedding-cinematography"
+        author="TK Production Film"
+      />
+
       <div className="service2-top-banner">
         <div className="service2-banner">
           <div className="service2-banner-desc">

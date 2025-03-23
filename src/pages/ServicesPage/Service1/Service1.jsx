@@ -14,6 +14,7 @@ import "swiper/css/effect-fade";
 import axios from "axios";
 import { baseUrl } from "../../../main";
 import toast from "react-hot-toast";
+import SEO from "../../../SEO/SEO";
 
 const Service1 = () => {
   const contentRef = useRef(null);
@@ -47,6 +48,14 @@ const Service1 = () => {
 
   return (
     <div className="service1">
+      <SEO
+        title="Wedding Photography | TK Production Film - Capture Your Special Moments"
+        description="Discover the magic of your wedding day with TK Production Film's expert wedding photography services. We capture every special moment with creativity and passion. Book now!"
+        keywords="wedding photography, wedding photographer, professional wedding photos, TK Production Film, wedding day memories, creative wedding shots"
+        url="https://tkproductionfilm.com/wedding-photography"
+        author="TK Production Film"
+      />
+
       <div className="service1-top-banner">
         <div className="service1-banner">
           <div className="service1-banner-desc">

@@ -1,0 +1,38 @@
+# ================================
+# Robots.txt for TK Production Film
+# ================================
+
+# ✅ Allow all search engines to crawl the site
+User-agent: *
+Disallow:
+
+# ✅ Sitemap for better indexing
+Sitemap: https://tkproductionfilm.com/sitemap.xml
+
+# ✅ Block sensitive admin areas
+Disallow: /admin/
+Disallow: /login/
+Disallow: /register/
+Disallow: /user-profile/
+
+# ✅ Allow image, CSS, and JS crawling
+User-agent: Googlebot-Image
+Allow: /images/
+
+User-agent: Googlebot
+Allow: *.css
+Allow: *.js
+
+# ✅ Block specific bots (optional)
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+# ✅ Prevent duplicate content
+Disallow: /*?*
+Disallow: /*.php$
+
+
+Sitemap: https://tkproductionfilm.com/sitemap.xml

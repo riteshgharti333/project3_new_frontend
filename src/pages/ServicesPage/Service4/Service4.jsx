@@ -15,6 +15,7 @@ import Video from "../../../components/Video/Video";
 import axios from "axios";
 import { baseUrl } from "../../../main";
 import toast from "react-hot-toast";
+import SEO from "../../../SEO/SEO";
 
 const Service4 = () => {
   const contentRef = useRef(null);
@@ -48,6 +49,14 @@ const Service4 = () => {
 
   return (
     <div className="service4">
+      <SEO
+        title="Pre-Wedding Photography | TK Production Film - Capture Romantic Moments Before Your Big Day"
+        description="Cherish your love story with TK Production Film's pre-wedding photography. Stunning, romantic, and creative photos to treasure forever. Book your session now!"
+        keywords="pre-wedding photography, couple photoshoot, romantic pre-wedding, creative pre-wedding pictures, TK Production Film, couple portraits"
+        url="https://tkproductionfilm.com/pre-wedding-photography"
+        author="TK Production Film"
+      />
+
       <div className="service4-top-banner">
         <div className="service4-banner">
           <div className="service4-banner-desc">
@@ -119,12 +128,6 @@ const Service4 = () => {
             </ul>
 
             <p>Let’s make your pre-wedding moments magical!</p>
-          </div>
-
-          <div className="service4-steps">
-            <h1>Our Work</h1>
-
-            <Video videoUrl="https://youtu.be/hAQ666Nzh0E?si=EgQSRNL0zfiEnr8a" />
           </div>
         </div>
       </div>

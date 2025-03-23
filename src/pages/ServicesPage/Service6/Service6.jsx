@@ -16,6 +16,7 @@ import { useEffect } from "react";
 import { baseUrl } from "../../../main";
 import axios from "axios";
 import toast from "react-hot-toast";
+import SEO from "../../../SEO/SEO";
 
 const Service6 = () => {
   const contentRef = useRef(null);
@@ -49,6 +50,14 @@ const Service6 = () => {
 
   return (
     <div className="service6">
+      <SEO
+        title="Engagement Photography & Couple Portraits | TK Production Film - Capture Your Love Story"
+        description="Celebrate your love with stunning engagement photography and couple portraits by TK Production Film. Book your session today to create lasting memories!"
+        keywords="engagement photography, couple portraits, pre-wedding photos, romantic photoshoot, TK Production Film"
+        url="https://tkproductionfilm.com/engagement-photography-couple-portraits"
+        author="TK Production Film"
+      />
+
       <div className="service6-top-banner">
         <div className="service6-banner">
           <div className="service6-banner-desc">
@@ -74,19 +83,20 @@ const Service6 = () => {
                 pagination={{ clickable: true }}
                 className="services-slide"
               >
-                {
-                  serviceImages?.map((item, index) => (
-                    <SwiperSlide key={index} className="service_slide">
-                      <img src={item} loading="lazy" alt="services" />
-                    </SwiperSlide>
-                  ))}
+                {serviceImages?.map((item, index) => (
+                  <SwiperSlide key={index} className="service_slide">
+                    <img src={item} loading="lazy" alt="services" />
+                  </SwiperSlide>
+                ))}
               </Swiper>
             </div>
             <h1>
               Engagement Photography & Couple Portraits by TK Production Film
             </h1>
             <p>
-            At TK Production Film, we capture your engagement’s magic—whether it’s a proposal, celebration, or romantic shoot—with creativity and elegance.
+              At TK Production Film, we capture your engagement’s magic—whether
+              it’s a proposal, celebration, or romantic shoot—with creativity
+              and elegance.
             </p>
           </div>
 
@@ -120,9 +130,7 @@ const Service6 = () => {
               ))}
             </ul>
 
-            <p>
-            Let us preserve your love story beautifully!
-            </p>
+            <p>Let us preserve your love story beautifully!</p>
           </div>
         </div>
       </div>

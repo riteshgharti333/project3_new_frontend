@@ -14,6 +14,7 @@ import FollowSection from "../../components/FollowSection/FollowSection";
 import PhotoAlbums from "../../components/PhotoAlbums/PhotoAlbums";
 
 import { baseUrl } from "../../main";
+import SEO from "../../SEO/SEO";
 
 const Homepage = () => {
   useEffect(() => {
@@ -30,6 +31,13 @@ const Homepage = () => {
 
   return (
     <div className="homepage">
+      <SEO
+        title="TK Production Film | Best Photography & Cinematography Services"
+        description="Capture your special moments with TK Production Film – expert wedding, pre-wedding, engagement, and event photography. Book your service today!"
+        keywords="photography, cinematography, wedding photography, pre-wedding film, baby shower photography, birthday photography, civil marriage photos, engagement portraits, TK Production Film"
+        url="https://tkproductionfilm.com"
+        author="TK Production Film"
+      />
       <HomeBanner />
       <div className="homepage-container">
         <OurService />

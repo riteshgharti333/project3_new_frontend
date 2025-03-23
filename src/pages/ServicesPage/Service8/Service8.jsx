@@ -15,6 +15,7 @@ import "swiper/css/effect-fade";
 import axios from "axios";
 import { baseUrl } from "../../../main";
 import toast from "react-hot-toast";
+import SEO from "../../../SEO/SEO";
 
 const Service8 = () => {
   const contentRef = useRef(null);
@@ -48,6 +49,14 @@ const Service8 = () => {
 
   return (
     <div className="service8">
+      <SEO
+        title="Baby Shower Photography | TK Production Film - Cherish Precious Moments"
+        description="Capture the joy and beauty of your baby shower with professional photography by TK Production Film. Book your session today and create timeless memories!"
+        keywords="baby shower photography, maternity event photos, baby celebration pictures, professional baby shower images, TK Production Film"
+        url="https://tkproductionfilm.com/baby-shower-photography"
+        author="TK Production Film"
+      />
+
       <div className="service8-top-banner">
         <div className="service8-banner">
           <div className="service8-banner-desc">

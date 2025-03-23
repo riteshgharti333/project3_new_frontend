@@ -25,6 +25,7 @@ import { aboutLists } from "../../assets/data";
 
 import founder_img from "../../assets/images/teamImgs/founder.jpeg";
 import Video from "../../components/Video/Video";
+import SEO from "../../SEO/SEO";
 
 const About = () => {
   const [openIndex, setOpenIndex] = useState(0);
@@ -67,6 +68,14 @@ const About = () => {
 
   return (
     <div className="about">
+      <SEO
+        title="About Us | TK Production Film - Capturing Your Precious Moments"
+        description="Discover TK Production Film – a creative team specializing in professional wedding photography, pre-wedding films, engagement portraits, and more. Our mission is to capture your unforgettable memories with passion and precision."
+        keywords="About TK Production Film, professional photography, cinematography services, wedding photography team, creative filmmakers, expert photographers, TK Production Film team"
+        url="https://tkproductionfilm.com/about-us"
+        author="TK Production Film"
+      />
+
       <div className="top-banner">
         <div className="about-banner">
           <div className="about-banner-desc">
@@ -120,7 +129,7 @@ const About = () => {
       </div>
 
       <div className="about-overlay">
-        <img src={overlay3} alt="about image" loading="lazy"/>
+        <img src={overlay3} alt="about image" loading="lazy" />
       </div>
 
       <div className="about-content" ref={aboutContentRef}>
@@ -190,7 +199,13 @@ const About = () => {
         </div>
 
         <div className="about-content-right">
-          <img src={bg19} alt="about image" data-aos="fade-up" data-aos-offset="700" loading="lazy"/>
+          <img
+            src={bg19}
+            alt="about image"
+            data-aos="fade-up"
+            data-aos-offset="700"
+            loading="lazy"
+          />
         </div>
       </div>
 

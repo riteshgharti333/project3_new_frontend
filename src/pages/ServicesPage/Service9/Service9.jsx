@@ -15,6 +15,7 @@ import "swiper/css/effect-fade";
 import axios from "axios";
 import { baseUrl } from "../../../main";
 import toast from "react-hot-toast";
+import SEO from "../../../SEO/SEO";
 
 const Service9 = () => {
   const contentRef = useRef(null);
@@ -25,29 +26,37 @@ const Service9 = () => {
     }
   };
 
-   const [serviceImages, setServiceImages] = useState();
-  
-    useEffect(() => {
-      const getServiceData = async () => {
-        try {
-          const { data } = await axios.get(
-            `${baseUrl}/services/graduation-photography/67de7035aa6520fad7a06663`
-          );
-  
-          if (data && data.serviceImages?.images) {
-            setServiceImages(data.serviceImages.images);
-          }
-        } catch (error) {
-          console.error("Error fetching service data:", error);
-          toast.error("Failed to fetch service data. Please try again.");
+  const [serviceImages, setServiceImages] = useState();
+
+  useEffect(() => {
+    const getServiceData = async () => {
+      try {
+        const { data } = await axios.get(
+          `${baseUrl}/services/graduation-photography/67de7035aa6520fad7a06663`
+        );
+
+        if (data && data.serviceImages?.images) {
+          setServiceImages(data.serviceImages.images);
         }
-      };
-  
-      getServiceData();
-    }, []);
+      } catch (error) {
+        console.error("Error fetching service data:", error);
+        toast.error("Failed to fetch service data. Please try again.");
+      }
+    };
+
+    getServiceData();
+  }, []);
 
   return (
     <div className="service9">
+      <SEO
+        title="Graduation Photography | TK Production Film - Capture Your Achievement"
+        description="Celebrate your academic success with professional graduation photography by TK Production Film. Book your session today and preserve this proud milestone forever!"
+        keywords="graduation photography, academic achievement photos, graduation portraits, professional graduation images, TK Production Film"
+        url="https://tkproductionfilm.com/graduation-photography"
+        author="TK Production Film"
+      />
+
       <div className="service9-top-banner">
         <div className="service9-banner">
           <div className="service9-banner-desc">
@@ -82,7 +91,9 @@ const Service9 = () => {
             </div>
             <h1>Graduation Photography by TK Production Film</h1>
             <p>
-            Celebrate your milestone with TK Production Film! We capture your graduation’s pride and joy with stunning photography and cinematic visuals.
+              Celebrate your milestone with TK Production Film! We capture your
+              graduation’s pride and joy with stunning photography and cinematic
+              visuals.
             </p>
           </div>
 
@@ -116,9 +127,7 @@ const Service9 = () => {
               ))}
             </ul>
 
-            <p>
-            Let us make your success unforgettable!
-            </p>
+            <p>Let us make your success unforgettable!</p>
           </div>
         </div>
       </div>

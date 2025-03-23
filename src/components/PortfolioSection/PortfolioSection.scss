@@ -1,0 +1,127 @@
+@use "../../styles/responsive.scss" as *;
+
+.portfolioSection {
+  max-width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+
+  h1 {
+    font-size: 50px;
+    text-align: center;
+    .portfolio {
+      color: #ffa500;
+    }
+  }
+
+  .portfolioSection-links {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    span {
+      margin: 0px 30px;
+      font-size: 18px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      font-weight: 500;
+
+      @include md {
+        margin: 0;
+      }
+
+      &:hover {
+        color: #ffa500;
+      }
+    }
+  }
+
+  .portfolioSection-imgs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .portfolioSection-imgs-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+
+      @include md {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include sm {
+        grid-template-columns: repeat(1, 1fr);
+      }
+      .zoom-img {
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(-50px);
+        animation: dropIn 0.6s ease-in-out forwards;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: all 0.3s ease;
+
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
+      }
+
+      .fade-in {
+        opacity: 0;
+        transform: translateY(-20px);
+        animation: fadeIn 0.6s ease-in-out forwards;
+      }
+    }
+
+    .load-more-button {
+      padding: 10px 20px;
+      font-weight: bold;
+      border-radius: 3px;
+      font-size: 15px;
+      text-decoration: none;
+      transition: all 0.3s ease-in-out;
+      border: 2px solid #ffa500;
+      cursor: pointer;
+      background: transparent;
+      color: #fff;
+      margin-top: 20px;
+      text-transform: uppercase;
+
+      &:hover {
+        background: transparent;
+        color: #000;
+        background: orange;
+      }
+    }
+  }
+}
+
+// Drop-in animation with stagger effect
+@keyframes dropIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Fade-in animation for category change
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

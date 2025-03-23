@@ -32,7 +32,7 @@ const Footer = () => {
               <div className="row2">
                 <div className="row2-widget">
                   <div className="footer-logo">
-                    <img src={logo} alt="" />
+                    <img src={logo} alt="logo image" loading="lazy" />
                   </div>
                   <h6 className="row2-title">
                     Contact us for a great photography <br /> session &

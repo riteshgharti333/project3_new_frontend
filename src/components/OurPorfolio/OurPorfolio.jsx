@@ -59,7 +59,7 @@ const OurPorfolio = () => {
         {homePortfolio.map((item , index) => (
           <div className="ourPorfolio-card" key={index}>
             <div className="ourPorfolio-card-inner">
-              <img src={item.img} alt="California Fall Collection 2023" />
+              <img src={item.img} alt="portflio image" loading="lazy" />
             </div>
           </div>
         ))}

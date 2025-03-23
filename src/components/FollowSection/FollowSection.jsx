@@ -8,14 +8,7 @@ import { FaTiktok } from "react-icons/fa";
 const FollowSection = () => {
   return (
     <div className="followSection">
-      {/* <div className="followSection-imgs">
-        <img src={m1} alt="" />
-        <img src={m1} alt="" />
-        <img src={m1} alt="" />
-        <img src={m1} alt="" />
-        <img src={m1} alt="" />
-      </div> */}
-
+    
       <h1>FOLLOW US ON</h1>
 
       <div className="followSection-cards">

@@ -13,7 +13,7 @@ const HomeBanner = () => {
   const [allData, setAllData] = useState([]);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 480);
 
-  // ✅ Fetch banners based on screen size
+  // Fetch banners based on screen size
   const fetchBanners = async () => {
     try {
       const apiUrl = isMobile
@@ -30,7 +30,7 @@ const HomeBanner = () => {
     }
   };
 
-  // ✅ Initial Fetch and Media Query Listener
+  //Initial Fetch and Media Query Listener
   useEffect(() => {
     fetchBanners();
 

@@ -76,7 +76,7 @@ const About = () => {
       </div>
 
       <div className="about-content-title">
-        <img src={about1} alt="" />
+        <img src={about1} alt="about image" loading="lazy" />
 
         <p>
           Welcome to TK Production Film, your premier destination for capturing
@@ -116,11 +116,11 @@ const About = () => {
       </div>
 
       <div className="about-big-img" data-aos="fade-up">
-        <img src={bg17} alt="About Us" />
+        <img src={bg17} alt="About Us" loading="lazy" />
       </div>
 
       <div className="about-overlay">
-        <img src={overlay3} alt="" />
+        <img src={overlay3} alt="about image" loading="lazy"/>
       </div>
 
       <div className="about-content" ref={aboutContentRef}>
@@ -131,7 +131,7 @@ const About = () => {
               data-aos="fade-up"
               data-aos-offset="700"
             >
-              <img src={founder_img} alt="" />
+              <img src={founder_img} alt="founder image" loading="lazy" />
               <p>Founder & Creative Director </p>
             </div>
 
@@ -190,13 +190,13 @@ const About = () => {
         </div>
 
         <div className="about-content-right">
-          <img src={bg19} alt="" data-aos="fade-up" data-aos-offset="700" />
+          <img src={bg19} alt="about image" data-aos="fade-up" data-aos-offset="700" loading="lazy"/>
         </div>
       </div>
 
       <div className="about-content2">
         <div className="about-content2-img">
-          <img src={bg20} alt="Why Choose Us" />
+          <img src={bg20} alt="Why Choose Us" loading="lazy" />
         </div>
 
         <div className="about-content2-desc">

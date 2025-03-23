@@ -26,7 +26,7 @@ const AboutAgency = () => {
 
       <div className="aboutAgency-bottom">
         <div className="aboutAgency-bottom-left">
-          <img src={bg7} alt="" />
+          <img src={bg7} alt="about image" loading="lazy" />
 
           <Link to={"/about-us"}>
             <div className="aboutAgency-bottom-left-desc">

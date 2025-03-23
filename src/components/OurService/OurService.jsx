@@ -40,7 +40,7 @@ const OurService = () => {
       </div>
 
       <div className="overlay">
-        <img src={overlay1} alt="" />
+        <img src={overlay1} alt="overlay image" loading="lazy" />
       </div>
 
       <div className="ourService-bottom">
@@ -48,7 +48,7 @@ const OurService = () => {
           {services.map((item , index) => (
             <Link to={item.link} key={index}>
               <div className="ourService-top-card" data-aos="fade-right">
-                <img src={item.img} alt="" />
+                <img src={item.img} alt="service image" loading="lazy" />
 
                 <div className="ourService-top-card-desc">
                   <h1>{item.service_name}</h1>

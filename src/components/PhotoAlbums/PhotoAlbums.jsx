@@ -78,7 +78,7 @@ const PhotoAlbums = () => {
             allData.map((album, index) => (
               <SwiperSlide key={album.image} className="photoAlbums-card">
                 <div className="photoAlbums-card-content">
-                  <img src={album.image} alt={album.image} />
+                  <img src={album.image} alt={album.image} loading="lazy"/>
 
                   <div
                     className={`homeBanner-desc ${

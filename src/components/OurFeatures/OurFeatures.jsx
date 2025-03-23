@@ -76,7 +76,7 @@ const OurFeatures = () => {
       {/* Right Section */}
       <div className="ourFeatures-right">
         <div className="ourFeatures-right-img">
-          <img ref={imgRef} src={hoveredItem?.image} alt="Feature" style={{ opacity: 0 }} />
+          <img ref={imgRef} src={hoveredItem?.image} alt="Feature" style={{ opacity: 0 }} loading="lazy"/>
         </div>
       </div>
     </div>

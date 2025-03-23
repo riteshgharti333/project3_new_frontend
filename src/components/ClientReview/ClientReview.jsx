@@ -59,7 +59,7 @@ const ClientReview = () => {
   return (
     <div className="clientReview">
       <div className="clientReview-img">
-        <img src={bg2} alt="Client Background" />
+        <img src={bg2} alt="Client Background" loading="lazy" />
 
         <div className="clientReview-card">
           <Swiper
@@ -156,7 +156,7 @@ const ReviewCard = ({ review, isActive, onExpand }) => {
       <hr className="line" />
 
       <div className="review-name">
-        <img src={review.image} alt={review.name} />
+        <img src={review.image} alt={review.name} loading="lazy"/>
         <div className="review-name-desc">
           <p>{review.name}</p>
         </div>

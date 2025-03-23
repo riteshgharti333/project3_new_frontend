@@ -96,7 +96,7 @@ const ContactSection = () => {
             <h1>Address</h1>
             <div className="address">
               <p>
-                Head Office in London <img src={flag1} alt="" /> :
+                Head Office in London <img src={flag1} alt="uk flag" loading="lazy" /> :
               </p>
               <span>506a Ladymargret Road Southall ub1 2np</span>
             </div>
@@ -104,7 +104,7 @@ const ContactSection = () => {
             <div className="address">
               <p>
                 Branch Office India
-                <img src={flag2} alt="" /> :
+                <img src={flag2} alt="india flag" loading="lazy" /> :
               </p>
               <div className="sm-address">
                 <span>

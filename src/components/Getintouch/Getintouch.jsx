@@ -46,7 +46,7 @@ const Getintouch = () => {
     <div className="getintouch">
       <div className="getintouch-overlay-wrapper">
         <div className="getintouch-overlay">
-          <img src={overlay1} alt="Overlay" />
+          <img src={overlay1} alt="Overlay" loading="lazy" />
         </div>
       </div>
 

@@ -63,7 +63,7 @@ const OurCore = () => {
       >
         {team.map((member, index) => (
           <SwiperSlide key={index} className="ourCore-slider-card">
-            <img src={member.image} alt={member.title} />
+            <img src={member.image} alt={member.title} loading="lazy" />
             <h2>{member.name}</h2>
             <p>{member.title}</p>
           </SwiperSlide>

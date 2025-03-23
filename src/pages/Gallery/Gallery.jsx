@@ -60,8 +60,9 @@ const Gallery = () => {
             <div key={index} className="gallery-card">
               <img
                 src={item.image}
-                alt=""
+                alt="portfolio image"
                 onClick={() => setSelectedImg(item.image)}
+                loading="lazy"
               />
             </div>
           ))}

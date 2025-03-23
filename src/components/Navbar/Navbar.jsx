@@ -66,7 +66,7 @@ const Navbar = () => {
         {/* Left: Logo */}
         <div className="navbar-left">
           <Link to="/" className="logo">
-            <img src={logo} alt="Company Logo" />
+            <img src={logo} alt="Company Logo" loading="lazy" />
           </Link>
         </div>
 
@@ -171,7 +171,7 @@ const Navbar = () => {
           </button>
 
           <div className="nav-social-logo">
-            <img src={logo} alt="" />
+            <img src={logo} alt="logo image" loading="lazy" />
           </div>
           <div className="nav-social-desc">
             <h6>TK Production Films</h6>
@@ -188,7 +188,7 @@ const Navbar = () => {
             <div className="insta-gallery">
               {menuImgs.map((item) => (
                 <div className="gallery-img">
-                  <img src={item.image} />
+                  <img src={item.image} alt="insta-image" loading="lazy" />
                 </div>
               ))}
             </div>

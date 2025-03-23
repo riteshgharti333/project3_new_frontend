@@ -21,7 +21,7 @@ export const service1Steps = [
   },
 ];
 
-//////////////////////////////////
+////////////////////////////////
 export const service2Data = [
   {
     title: "Candid, romantic photography",

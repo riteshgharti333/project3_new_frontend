@@ -1,48 +1,60 @@
 import "./Gallery.scss";
-
 import { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-
-import { gallery } from "../../assets/data";
+import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { baseUrl } from "../../main";
 import SEO from "../../SEO/SEO";
 import { useLocation } from "react-router-dom";
+import Loader from "../../components/Loader/Loader";
 
 const Gallery = () => {
   const [currentPage, setCurrentPage] = useState(0);
-  const [allPortfolio, setAllPortfolio] = useState([]);
-  const cardsPerPage = 20;
   const [selectedImg, setSelectedImg] = useState(null);
+  const cardsPerPage = 20;
+  const location = useLocation();
 
   const offset = currentPage * cardsPerPage;
 
-  // Handle page change with scroll to top
+  // ✅ Fetch Portfolio with Error Handling
+  const fetchPortfolios = async () => {
+    try {
+      const { data } = await axios.get(`${baseUrl}/portfolio/all-portfolios`);
+      return data.portfolios;
+    } catch (error) {
+      if (error.response) {
+        console.error("Server Error:", error.response);
+        throw new Error(
+          error.response.status >= 500
+            ? "Server error! Please try again later."
+            : "Failed to load portfolios!"
+        );
+      } else if (error.request) {
+        console.error("Network Error:", error.request);
+        throw new Error("Network error! Check your internet connection.");
+      } else {
+        console.error("Unknown Error:", error.message);
+        throw new Error("Unexpected error occurred!");
+      }
+    }
+  };
+
+  // ✅ Use React Query for data fetching
+  const { data, isLoading, isError, error, refetch } = useQuery({
+    queryKey: ["portfolios"],
+    queryFn: fetchPortfolios,
+    staleTime: 1000 * 60 * 5,
+    retry: 2,
+  });
+
+  const currentCards = data ? data.slice(offset, offset + cardsPerPage) : [];
+
+  // ✅ Handle Page Change
   const handlePageChange = ({ selected }) => {
     setCurrentPage(selected);
     window.scrollTo(0, 0);
   };
-
-  useEffect(() => {
-    const getAllPortfolio = async () => {
-      try {
-        const { data } = await axios.get(`${baseUrl}/portfolio/all-portfolios`);
-        if (data && data.portfolios) {
-          setAllPortfolio(data.portfolios);
-        }
-      } catch (error) {
-        console.error("Error fetching portfolios:", error);
-        toast.error("Failed to fetch portfolios. Please try again.");
-      }
-    };
-
-    getAllPortfolio();
-  }, []);
-
-  const currentCards = allPortfolio.slice(offset, offset + cardsPerPage);
-
-  const location = useLocation();
 
   return (
     <div className="gallery">
@@ -61,52 +73,69 @@ const Gallery = () => {
           </div>
         </div>
       </div>
+
       <div className="gallery-container">
         <div className="gallery-container-top">
           <h1> Our Portfolio</h1>
-          <p>TK Production Films All of your beautiful memories</p>
+          <p>TK Production Films - All of your beautiful memories</p>
         </div>
 
-        <div className="gallery-cards">
-          {currentCards.map((item, index) => (
-            <div key={index} className="gallery-card">
-              <img
-                src={item.image}
-                alt="portfolio image"
-                onClick={() => setSelectedImg(item.image)}
-                loading="lazy"
-                decoding="async"
-              />
+        {/* ✅ Show Loader inside Main Section */}
+        {isLoading ? (
+          <div className="gallery-loader-container">
+            <Loader loaderSize="galleryLoader" />
+          </div>
+        ) : isError ? (
+          <div className="error-container">
+            <p>{error.message}</p>
+            <button onClick={() => refetch()}>Retry</button>
+          </div>
+        ) : currentCards.length > 0 ? (
+          <>
+            <div className="gallery-cards">
+              {currentCards.map((item, index) => (
+                <div key={index} className="gallery-card">
+                  <img
+                    src={item.image}
+                    alt="portfolio image"
+                    onClick={() => setSelectedImg(item.image)}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
 
-        {/* Pagination Controls */}
-        <ReactPaginate
-          previousLabel={
-            <span className="prev-icon">
-              <FaChevronLeft />
-            </span>
-          }
-          nextLabel={
-            <span className="next-icon">
-              <FaChevronRight />
-            </span>
-          }
-          pageCount={Math.ceil(gallery.length / cardsPerPage)}
-          onPageChange={handlePageChange}
-          containerClassName={"pagination"}
-          pageClassName={"page-item"}
-          pageLinkClassName={"page-link"}
-          previousClassName={"page-item"}
-          previousLinkClassName={"page-link"}
-          nextClassName={"page-item"}
-          nextLinkClassName={"page-link"}
-          activeClassName={"active"}
-          pageRangeDisplayed={2}
-          marginPagesDisplayed={1}
-          breakLabel=".........."
-        />
+            {/* Pagination Controls */}
+            <ReactPaginate
+              previousLabel={
+                <span className="prev-icon">
+                  <FaChevronLeft />
+                </span>
+              }
+              nextLabel={
+                <span className="next-icon">
+                  <FaChevronRight />
+                </span>
+              }
+              pageCount={Math.ceil(data.length / cardsPerPage)}
+              onPageChange={handlePageChange}
+              containerClassName={"pagination"}
+              pageClassName={"page-item"}
+              pageLinkClassName={"page-link"}
+              previousClassName={"page-item"}
+              previousLinkClassName={"page-link"}
+              nextClassName={"page-item"}
+              nextLinkClassName={"page-link"}
+              activeClassName={"active"}
+              pageRangeDisplayed={2}
+              marginPagesDisplayed={1}
+              breakLabel=".........."
+            />
+          </>
+        ) : (
+          <p>No portfolios available</p>
+        )}
       </div>
 
       {selectedImg && (

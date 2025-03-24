@@ -23,6 +23,7 @@ import Service9 from "./pages/ServicesPage/Service9/Service9.jsx";
 import { ScrollProvider, useScrollContext } from "./context/ScrollContext.jsx";
 
 import { HelmetProvider } from "react-helmet-async";
+import ReactQueryProvider from "../utils/ReactQueryProvider.jsx";
 
 function App() {
   const ScrollToTop = () => {
@@ -41,54 +42,56 @@ function App() {
 
   return (
     <div className="app">
-      <HelmetProvider>
-        <ScrollProvider>
-          <BrowserRouter>
-            <ScrollToTop />
-            <Navbar />
-            <Routes>
-              <Route path="/" element={<Homepage />} />
-              <Route path="/about-us" element={<About />} />
-              <Route path="/contact-us" element={<Contact />} />
-              <Route path="/portfolio" element={<Gallery />} />
+      <ReactQueryProvider>
+        <HelmetProvider>
+          <ScrollProvider>
+            <BrowserRouter>
+              <ScrollToTop />
+              <Navbar />
+              <Routes>
+                <Route path="/" element={<Homepage />} />
+                <Route path="/about-us" element={<About />} />
+                <Route path="/contact-us" element={<Contact />} />
+                <Route path="/portfolio" element={<Gallery />} />
 
-              {/* services */}
-              <Route path="/wedding-photography" element={<Service1 />} />
-              <Route path="/wedding-cinematography" element={<Service2 />} />
-              <Route path="/pre-wedding-film" element={<Service3 />} />
-              <Route path="/pre-wedding-photography" element={<Service4 />} />
-              <Route
-                path="/civil-marriage-photography"
-                element={<Service5 />}
+                {/* services */}
+                <Route path="/wedding-photography" element={<Service1 />} />
+                <Route path="/wedding-cinematography" element={<Service2 />} />
+                <Route path="/pre-wedding-film" element={<Service3 />} />
+                <Route path="/pre-wedding-photography" element={<Service4 />} />
+                <Route
+                  path="/civil-marriage-photography"
+                  element={<Service5 />}
+                />
+                <Route
+                  path="/engagement-photography-couple-portraits"
+                  element={<Service6 />}
+                />
+
+                <Route path="/birthday-photography" element={<Service7 />} />
+
+                <Route path="/baby-shower-photography" element={<Service8 />} />
+
+                <Route path="/graduation-photography" element={<Service9 />} />
+
+                {/* services */}
+              </Routes>
+              <Footer />
+
+              <Toaster
+                toastOptions={{
+                  className: "",
+                  style: {
+                    fontFamily: "Sora, serif",
+                    fontSize: "18px",
+                    fontWeight: "600",
+                  },
+                }}
               />
-              <Route
-                path="/engagement-photography-couple-portraits"
-                element={<Service6 />}
-              />
-
-              <Route path="/birthday-photography" element={<Service7 />} />
-
-              <Route path="/baby-shower-photography" element={<Service8 />} />
-
-              <Route path="/graduation-photography" element={<Service9 />} />
-
-              {/* services */}
-            </Routes>
-            <Footer />
-
-            <Toaster
-              toastOptions={{
-                className: "",
-                style: {
-                  fontFamily: "Sora, serif",
-                  fontSize: "18px",
-                  fontWeight: "600",
-                },
-              }}
-            />
-          </BrowserRouter>
-        </ScrollProvider>
-      </HelmetProvider>
+            </BrowserRouter>
+          </ScrollProvider>
+        </HelmetProvider>
+      </ReactQueryProvider>
     </div>
   );
 }

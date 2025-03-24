@@ -6,14 +6,17 @@ import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+
 import axios from "axios";
+import { useQuery } from "@tanstack/react-query";
 import { baseUrl } from "../../main";
+import Loader from "../../components/Loader/Loader";
+import { toast } from "react-hot-toast";
 
 const HomeBanner = () => {
-  const [allData, setAllData] = useState([]);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 480);
 
-  // Fetch banners based on screen size
+  // ✅ Function to fetch banners with better error handling
   const fetchBanners = async () => {
     try {
       const apiUrl = isMobile
@@ -21,31 +24,66 @@ const HomeBanner = () => {
         : `${baseUrl}/home-banner/all-home-banners`;
 
       const { data } = await axios.get(apiUrl);
-
-      if (data && data.homeBanner) {
-        setAllData(data.homeBanner);
-      }
+      return data.homeBanner;
     } catch (error) {
-      console.error("Error fetching home banners:", error);
+      // ✅ Handle specific error types
+      if (error.response) {
+        // Server responded with a status outside 2xx
+        console.error("Server Error:", error.response);
+        throw new Error(
+          error.response.status >= 500
+            ? "Server error! Please try again later."
+            : "Failed to load banners!"
+        );
+      } else if (error.request) {
+        // No response from the server (Network issue)
+        console.error("Network Error:", error.request);
+        throw new Error("Network error! Check your internet connection.");
+      } else {
+        // Unknown error
+        console.error("Unknown Error:", error.message);
+        throw new Error("Unexpected error occurred!");
+      }
     }
   };
 
-  //Initial Fetch and Media Query Listener
-  useEffect(() => {
-    fetchBanners();
+  // ✅ Use React Query to fetch banners
+  const { data, isLoading, isError, error, refetch } = useQuery({
+    queryKey: ["homeBanners", isMobile],
+    queryFn: fetchBanners,
+    staleTime: 1000 * 60 * 5,
+    retry: 2,
+  });
 
+  // ✅ Handle Resize for Mobile/Desktop Switch
+  useEffect(() => {
     const handleResize = () => {
       const isMobileNow = window.innerWidth <= 480;
-
       if (isMobileNow !== isMobile) {
         setIsMobile(isMobileNow);
-        fetchBanners();
+        refetch();
       }
     };
 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, [isMobile]);
+  }, [isMobile, refetch]);
+
+  // ✅ Loading State
+  if (isLoading) return <Loader />;
+
+  // ✅ Error State Handling
+  if (isError) {
+    toast.error(error.message || "Failed to load banners.");
+    return (
+      <div className="error-container">
+        <div className="error-container-desc">
+          <p>{error.message}</p>
+          <button onClick={() => refetch()}>Retry</button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="homeBanner">
@@ -62,14 +100,17 @@ const HomeBanner = () => {
         }}
         className="swiper-container"
       >
-        {allData.length > 0 &&
-          allData.map((slide, index) => (
+        {data?.length > 0 ? (
+          data.map((slide, index) => (
             <SwiperSlide key={index} className="slide">
               <div className="homeBanner-imgs">
                 <img src={slide.image} alt="Banner" loading="lazy" />
               </div>
             </SwiperSlide>
-          ))}
+          ))
+        ) : (
+          <p>No banners available</p>
+        )}
       </Swiper>
 
       <div className="swiper-button-prev">Prev</div>

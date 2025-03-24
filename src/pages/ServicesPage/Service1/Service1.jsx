@@ -9,11 +9,11 @@ import { EffectFade, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
 
-import { useQuery } from "@tanstack/react-query";  // ✅ React Query
+import { useQuery } from "@tanstack/react-query"; // ✅ React Query
 import axios from "axios";
 import { baseUrl } from "../../../main";
 import toast from "react-hot-toast";
-import Loader from "../../../components/Loader/Loader";  // ✅ Loader component
+import Loader from "../../../components/Loader/Loader"; // ✅ Loader component
 import SEO from "../../../SEO/SEO";
 
 const Service1 = () => {
@@ -39,7 +39,6 @@ const Service1 = () => {
       }
 
       return data.serviceImages.images;
-
     } catch (error) {
       console.error("Error fetching service images:", error);
 
@@ -69,8 +68,8 @@ const Service1 = () => {
   } = useQuery({
     queryKey: ["serviceImages1"],
     queryFn: fetchServiceImages,
-    staleTime: 1000 * 60 * 5,   // Cache for 5 mins
-    retry: 2,                   // Retry twice on failure
+    staleTime: 1000 * 60 * 5, // Cache for 5 mins
+    retry: 2, // Retry twice on failure
   });
 
   return (
@@ -97,9 +96,7 @@ const Service1 = () => {
         </div>
 
         <div className="service1-container-content" ref={contentRef}>
-          
           <div className="service1-container-content-top">
-            
             {/* ✅ Loading State */}
             {imagesLoading && (
               <div className="service1-loader-container">
@@ -142,14 +139,20 @@ const Service1 = () => {
             <h1>Wedding Photography by TK Production Film</h1>
             <p>
               Capture your love story with TK Production Film. Led by Taufeq
-              Khan with 16+ years and 800+ weddings, we create timeless
-              memories through stunning photography and cinematic films.
+              Khan with 16+ years and 800+ weddings, we create timeless memories
+              through stunning photography and cinematic films.
             </p>
             <p>
               We specialize in turning your wedding day into a visual
-              masterpiece. From the soft glances during the vows to the
-              joyous laughter at the reception, our team captures every
-              moment with artistry and precision.
+              masterpiece. From the soft glances during the vows to the joyous
+              laughter at the reception, our team captures every moment with
+              artistry and precision. Whether you love candid shots that reveal
+              raw emotions, traditional portraits that honor timeless elegance,
+              or editorial-style images with a modern flair, we tailor our
+              approach to your unique style. Using top-tier equipment and
+              creative techniques, we ensure every detail—your dress, the
+              flowers, the smiles—shines through in vibrant, high-quality photos
+              you’ll cherish forever.
             </p>
           </div>
 

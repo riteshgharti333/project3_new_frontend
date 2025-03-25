@@ -31,13 +31,13 @@ import service12 from "../assets/images/serviceicon/service12.svg";
 import service13 from "../assets/images/serviceicon/service13.svg";
 
 // home banners
-import banner1 from "../assets/images/bannerimg/banner1.webp";
-import banner2 from "../assets/images/bannerimg/banner2.webp";
-import banner3 from "../assets/images/bannerimg/banner3.webp";
-import banner4 from "../assets/images/bannerimg/banner4.webp";
-import banner5 from "../assets/images/bannerimg/banner5.webp";
-import banner6 from "../assets/images/bannerimg/banner6.webp";
-import banner7 from "../assets/images/bannerimg/banner7.webp";
+import banner1 from "../assets/images/bannerDesc/banner1.webp";
+import banner2 from "../assets/images/bannerDesc/banner2.webp";
+import banner3 from "../assets/images/bannerDesc/banner3.webp";
+import banner4 from "../assets/images/bannerDesc/banner4.webp";
+import banner5 from "../assets/images/bannerDesc/banner5.webp";
+import banner6 from "../assets/images/bannerDesc/banner6.webp";
+import banner7 from "../assets/images/bannerDesc/banner7.webp";
 
 // mobile home banner
 import mobilebanner1 from "../assets/images/bannerimg/mobileBanner.webp";

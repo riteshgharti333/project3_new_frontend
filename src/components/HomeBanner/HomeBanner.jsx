@@ -117,7 +117,6 @@ const HomeBanner = () => {
                     initialized && index === activeIndex ? "animate" : ""
                   }`}
                 >
-                  <h6>Wedding Agency</h6>
                   <h1>{slide.title}</h1>
                   <p>{slide.desc}</p>
                 </div>

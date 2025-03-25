@@ -16,7 +16,7 @@ import PhotoAlbums from "../../components/PhotoAlbums/PhotoAlbums";
 import { baseUrl } from "../../main";
 import SEO from "../../SEO/SEO";
 import WeddingType from "../../components/WeddingType/WeddingType";
-import InstaFeed from "../../../../admin/src/components/InstaFeed/InstaFeed";
+// import InstaFeed from "../../../../admin/src/components/InstaFeed/InstaFeed";
 
 const Homepage = () => {
   useEffect(() => {

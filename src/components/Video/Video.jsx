@@ -2,8 +2,6 @@ import { useState } from "react";
 import "./Video.scss";
 import { TbPlayerPlayFilled } from "react-icons/tb";
 
-import thumbnail from "../../assets/images/bannerimg/banner4.webp";
-
 const getYouTubeID = (url) => {
   const match = url.match(
     /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/
@@ -11,18 +9,21 @@ const getYouTubeID = (url) => {
   return match ? match[1] : null;
 };
 
-const Video = ({ videoUrl }) => {
+const Video = ({ videoUrl ,videoSize }) => {
   const [isPlaying, setIsPlaying] = useState(false);
 
   const videoId = getYouTubeID(videoUrl);
   if (!videoId) return <p>Invalid YouTube URL</p>;
 
+  // ✅ Use YouTube's thumbnail URL format
+  const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+
   return (
     <div className="video-container">
       {!isPlaying ? (
         <div className="thumbnail" onClick={() => setIsPlaying(true)}>
-          <img src={thumbnail} alt="Custom Thumbnail" loading="lazy" />
-          <div className="player">
+          <img src={thumbnailUrl} alt="YouTube Thumbnail" loading="lazy" />
+          <div className={`player ${videoSize}` }>
             <TbPlayerPlayFilled className="player-icon" />
           </div>
         </div>

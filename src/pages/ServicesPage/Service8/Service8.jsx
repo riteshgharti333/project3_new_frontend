@@ -1,33 +1,26 @@
 import "./Service8.scss";
-import ServicePageSidebar from "../ServicePageSidebar/ServicePageSidebar";
 import { FaCheck } from "react-icons/fa";
 import ServiceContact from "../../../components/ServiceContact/ServiceContact";
 import { service4Data, service4Steps } from "../../../assets/servicesData";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
 
-import { useQuery } from "@tanstack/react-query";  // ✅ React Query
+import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { baseUrl } from "../../../main";
 import toast from "react-hot-toast";
-import Loader from "../../../components/Loader/Loader";  // ✅ Loader component
+import Loader from "../../../components/Loader/Loader";
 import SEO from "../../../SEO/SEO";
+import { serviceimages } from "../../../assets/data";
 
 const Service8 = () => {
   const contentRef = useRef(null);
+  const [selectedImg, setSelectedImg] = useState(null);
 
-  // ✅ Scroll to Content
-  const scrollToContent = () => {
-    if (contentRef.current) {
-      contentRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  // ✅ Fetch Service Images with Proper Error Handling
   const fetchServiceImages = async () => {
     try {
       const { data } = await axios.get(
@@ -40,7 +33,6 @@ const Service8 = () => {
       }
 
       return data.serviceImages.images;
-
     } catch (error) {
       console.error("Error fetching service images:", error);
 
@@ -60,7 +52,6 @@ const Service8 = () => {
     }
   };
 
-  // ✅ Use React Query for Fetching with Error Handling & Caching
   const {
     data: serviceImages,
     isLoading: imagesLoading,
@@ -70,8 +61,8 @@ const Service8 = () => {
   } = useQuery({
     queryKey: ["serviceImages8"],
     queryFn: fetchServiceImages,
-    staleTime: 1000 * 60 * 5,   // Cache for 5 mins
-    retry: 2,                   // Retry twice on failure
+    staleTime: 1000 * 60 * 5, // Cache for 5 mins
+    retry: 2, // Retry twice on failure
   });
 
   return (
@@ -87,28 +78,20 @@ const Service8 = () => {
       <div className="service8-top-banner">
         <div className="service8-banner">
           <div className="service8-banner-desc">
-            <h1>Service Details</h1>
+            <h1>Baby Shower Photography</h1>
           </div>
         </div>
       </div>
 
       <div className="service8-container">
-        <div className="service8-container-sidebar">
-          <ServicePageSidebar onSidebarClick={scrollToContent} />
-        </div>
-
         <div className="service8-container-content" ref={contentRef}>
-          
           <div className="service8-container-content-top">
-            
-            {/* ✅ Loading State */}
             {imagesLoading && (
               <div className="service8-loader-container">
                 <Loader loaderSize="serviceLoader" />
               </div>
             )}
 
-            {/* ✅ Error State */}
             {imagesError && (
               <div className="service8-error-container">
                 <div className="service8-error-desc">
@@ -118,7 +101,6 @@ const Service8 = () => {
               </div>
             )}
 
-            {/* ✅ Display Swiper if data is available */}
             {serviceImages && serviceImages.length > 0 ? (
               <div className="services-img-slide">
                 <Swiper
@@ -177,8 +159,34 @@ const Service8 = () => {
             </ul>
             <p>Let us make your baby shower memories last forever!</p>
           </div>
+
+          <hr />
+          <div className="service-images">
+            <h2>Our Baby Shower Photography Gallery</h2>
+            <div className="service-image-cards">
+              {serviceimages.map((item, index) => (
+                <div className="service-image-card" key={index}>
+                  <img
+                    src={item.img}
+                    alt="service image"
+                    loading="lazy"
+                    onClick={() => setSelectedImg(item.img)}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
+
+      {selectedImg && (
+        <div className="image-modal" onClick={() => setSelectedImg(null)}>
+          <img src={selectedImg} alt="Fullscreen Preview" loading="lazy" />
+          <span className="close-btn" onClick={() => setSelectedImg(null)}>
+            ×
+          </span>
+        </div>
+      )}
 
       <div className="service-contact">
         <ServiceContact />

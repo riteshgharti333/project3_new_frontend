@@ -1,5 +1,4 @@
 import "./Service2.scss";
-import ServicePageSidebar from "../ServicePageSidebar/ServicePageSidebar";
 
 import ServiceContact from "../../../components/ServiceContact/ServiceContact";
 import { service1Steps } from "../../../assets/servicesData";
@@ -15,19 +14,12 @@ import Video from "../../../components/Video/Video";
 import { useEffect } from "react";
 import { baseUrl } from "../../../main";
 import axios from "axios";
-import { TbCodeAsterisk } from "react-icons/tb";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import SEO from "../../../SEO/SEO";
 
 const Service2 = () => {
   const contentRef = useRef(null);
-
-  const scrollToContent = () => {
-    if (contentRef.current) {
-      contentRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-  };
 
   const [serviceImages, setServiceImages] = useState();
 
@@ -82,16 +74,12 @@ const Service2 = () => {
       <div className="service2-top-banner">
         <div className="service2-banner">
           <div className="service2-banner-desc">
-            <h1>Service Details</h1>
+            <h1>Wedding Cinematography</h1>
           </div>
         </div>
       </div>
 
       <div className="service2-container">
-        <div className="service2-container-sidebar">
-          <ServicePageSidebar onSidebarClick={scrollToContent} />
-        </div>
-
         <div className="service2-container-content" ref={contentRef}>
           <div className="service2-container-content-top">
             <div className="services-img-slide">
@@ -147,12 +135,33 @@ const Service2 = () => {
             <p>Let us make your special day unforgettable!</p>
           </div>
 
-          <div className="service2-steps">
-            <h1>Our Work</h1>
-            {allData.length > 0 &&
-              allData.map((item, index) => (
-                <Video videoUrl={item.link} key={index} />
-              ))}
+          <hr />
+
+          <div className="service-films">
+            <h2>Wedding Cinematography Videos</h2>
+            <div className="service-videos">
+              {allData?.length > 0 &&
+                allData?.map((item, index) => (
+                  <div className="service-video" key={index}>
+                    <Video videoUrl={item.link} videoSize="wedding" />
+                  </div>
+                ))}
+            </div>
+            <div className="subscribe-btn">
+              <p>
+                Subscribe to our YouTube channel for more stunning wedding films
+                and exclusive content!
+              </p>
+
+              <a
+                href="https://www.youtube.com/@tkproductionfilm"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="sub-btn"
+              >
+                Subscribe
+              </a>
+            </div>
           </div>
         </div>
       </div>

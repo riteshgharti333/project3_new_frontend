@@ -104,40 +104,31 @@
         font-size: 60px;
 
         @include sm {
-          font-size: 50px;
+          font-size: 35px;
         }
       }
       p {
         font-size: 23px;
         color: #585858;
+        @include sm {
+          font-size: 18px;
+        }
       }
     }
 
     .gallery-cards {
-      column-count: 2;
-      column-gap: 60px;
+      column-count: 3;
+      column-gap: 15px;
       margin-top: 50px;
 
-      @include xl {
-        column-gap: 50px;
-      }
-
-      @include lg {
-        column-gap: 20px;
-      }
-
       @include md {
-        column-gap: 10px;
-      }
-
-      @include sm {
-        column-count: 1;
+        column-count: 2;
       }
 
       .gallery-card {
         display: inline-block;
         width: 100%;
-        margin-bottom: 50px;
+        margin-bottom: 10px;
         break-inside: avoid;
         position: relative;
         overflow: hidden;

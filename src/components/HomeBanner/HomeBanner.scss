@@ -63,7 +63,7 @@
       @include lg {
         width: 90%;
         top: 50%;
-        left: 50%;
+        left: 30%;
         transform: translate(-50%, -50%);
         padding-right: 0px;
         margin: 0px 10px;
@@ -71,12 +71,16 @@
 
       @include md {
         width: 100%;
+        left: 40%;
         padding-right: 40px;
+        top: 70%;
       }
 
       @include sm {
         width: 100%;
         padding-right: 10px;
+        left: 25%;
+        top: 70%;
       }
 
       h6 {
@@ -382,11 +386,11 @@
 }
 ////////////////
 
-.error-container{
+.error-container {
   height: 100vh;
   position: relative;
 
-  .error-container-desc{
+  .error-container-desc {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -397,7 +401,7 @@
     align-items: center;
     gap: 10px;
 
-    button{
+    button {
       background: $primary-color;
       color: #fff;
       border: none;
@@ -405,9 +409,5 @@
       font-size: 16px;
       cursor: pointer;
     }
-
   }
-
-
-
 }

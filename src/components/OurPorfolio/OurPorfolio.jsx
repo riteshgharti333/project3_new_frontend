@@ -55,17 +55,17 @@ const OurPorfolio = () => {
         </p>
       </div>
 
-      <div className="ourPorfolio-cards">
-        {homePortfolio.map((item , index) => (
-          <div className="ourPorfolio-card" key={index}>
-            <div className="ourPorfolio-card-inner">
+      <div className="ourPortfolio-cards">
+        {homePortfolio.map((item, index) => (
+          <div className="ourPortfolio-card" key={index}>
+            <div className="ourPortfolio-card-inner">
               <img src={item.img} alt="portflio image" loading="lazy" />
             </div>
           </div>
         ))}
       </div>
 
-      <Link to={"/portfolio"} className="porfolio-link">
+      <Link to={"/portfolio"} className="portfolio-link">
         <button>
           <div className="btn-wrap">
             <span>Discover All Projects</span>

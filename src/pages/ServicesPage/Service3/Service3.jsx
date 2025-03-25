@@ -1,5 +1,4 @@
 import "./Service3.scss";
-import ServicePageSidebar from "../ServicePageSidebar/ServicePageSidebar";
 import { FaCheck } from "react-icons/fa";
 import ServiceContact from "../../../components/ServiceContact/ServiceContact";
 import { service2Data, service2Steps } from "../../../assets/servicesData";
@@ -10,25 +9,18 @@ import { EffectFade, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
 
-import { useQuery } from "@tanstack/react-query"; // ✅ React Query
+import { useQuery } from "@tanstack/react-query";
+
 import axios from "axios";
 import { baseUrl } from "../../../main";
 import toast from "react-hot-toast";
-import Loader from "../../../components/Loader/Loader"; // ✅ Loader component
+import Loader from "../../../components/Loader/Loader";
 import SEO from "../../../SEO/SEO";
 import Video from "../../../components/Video/Video";
 
 const Service3 = () => {
   const contentRef = useRef(null);
 
-  // ✅ Scroll to Content
-  const scrollToContent = () => {
-    if (contentRef.current) {
-      contentRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  // ✅ Fetch Service Images with Proper Error Handling
   const fetchServiceImages = async () => {
     try {
       const { data } = await axios.get(
@@ -60,7 +52,6 @@ const Service3 = () => {
     }
   };
 
-  // ✅ Fetch Videos with Proper Error Handling
   const fetchVideos = async () => {
     try {
       const { data } = await axios.get(
@@ -92,7 +83,6 @@ const Service3 = () => {
     }
   };
 
-  // ✅ Use React Query for Fetching with Error Handling & Caching
   const {
     data: serviceImages,
     isLoading: imagesLoading,
@@ -132,26 +122,20 @@ const Service3 = () => {
       <div className="service3-top-banner">
         <div className="service3-banner">
           <div className="service3-banner-desc">
-            <h1>Service Details</h1>
+            <h1>Pre Wedding Film</h1>
           </div>
         </div>
       </div>
 
       <div className="service3-container">
-        <div className="service3-container-sidebar">
-          <ServicePageSidebar onSidebarClick={scrollToContent} />
-        </div>
-
         <div className="service3-container-content" ref={contentRef}>
           <div className="service3-container-content-top">
-            {/* ✅ Loading State */}
             {(imagesLoading || videosLoading) && (
               <div className="service3-loader-container">
                 <Loader loaderSize="serviceLoader" />
               </div>
             )}
 
-            {/* ✅ Error State */}
             {(imagesError || videosError) && (
               <div className="service3-error-container">
                 <div className="service3-error-desc">
@@ -168,7 +152,6 @@ const Service3 = () => {
               </div>
             )}
 
-            {/* ✅ Display Swiper if data is available */}
             {serviceImages && serviceImages.length > 0 && (
               <div className="services-img-slide">
                 <Swiper
@@ -226,15 +209,34 @@ const Service3 = () => {
             <p>Let’s make your pre-wedding moments magical!</p>
           </div>
 
-          <div className="service3-steps">
-            <h1>Our Work</h1>
-            {allVideos && allVideos.length > 0 ? (
-              allVideos.map((item, index) => (
-                <Video videoUrl={item.link} key={index} />
-              ))
-            ) : (
-              <p>No videos available</p>
-            )}
+          <hr />
+
+          <div className="service-films">
+            <h2>Pre-Wedding Film</h2>
+            <div className="service-videos">
+              {allVideos?.length > 0 &&
+                allVideos.map((item, index) => (
+                  <div className="service-video" key={index}>
+                    <Video videoUrl={item.link} videoSize="wedding" />
+                  </div>
+                ))}
+            </div>
+
+            <div className="subscribe-btn">
+              <p>
+                Subscribe to our YouTube channel for more stunning wedding films
+                and exclusive content!
+              </p>
+
+              <a
+                href="https://www.youtube.com/@tkproductionfilm"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="sub-btn"
+              >
+                Subscribe
+              </a>
+            </div>
           </div>
         </div>
       </div>

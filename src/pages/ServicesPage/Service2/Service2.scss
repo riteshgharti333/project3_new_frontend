@@ -5,7 +5,7 @@
   .service2-top-banner {
     padding: 100px 30px 00px 30px;
 
-    @include md {
+    @include lg {
       padding: 100px 10px 0px 10px;
     }
 
@@ -51,7 +51,7 @@
 
         h1 {
           text-align: center;
-          font-size: 60px;
+          font-size: 50px;
           color: #fff;
           position: relative;
 
@@ -60,7 +60,7 @@
           }
 
           @include sm {
-            font-size: 40px;
+            font-size: 35px;
           }
 
           @include xl {
@@ -72,62 +72,23 @@
               display: none;
             }
           }
-
-          &::before {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 0; // Align to the left of the parent element
-            width: 400px;
-            height: 1px;
-            background-color: rgba(
-              255,
-              255,
-              255,
-              0.3
-            ); // Ensure RGBA value is correct
-            transform: translateY(-50%); // Adjust vertical positioning
-          }
-
-          &::after {
-            content: "";
-            position: absolute;
-            top: 50%;
-            right: 0; // Align to the left of the parent element
-            width: 400px;
-            height: 1px;
-            background-color: rgba(
-              255,
-              255,
-              255,
-              0.3
-            ); // Ensure RGBA value is correct
-            transform: translateY(-50%); // Adjust vertical positioning
-          }
         }
       }
     }
   }
 
   .service2-container {
-    padding: 80px 30px;
-    max-width: 1400px;
+    padding: 30px 10px;
+    max-width: 1200px;
     width: 100%;
     margin: 0 auto;
-    display: flex;
     gap: 50px;
     overflow: hidden;
 
     @include lg {
-      flex-direction: column;
       padding: 10px 10px;
       gap: 30px;
-    }
-
-    @include lg {
-      flex-direction: column;
-      padding: 10px 10px;
-      gap: 30px;
+      margin-top: 30px;
     }
 
     .service2-container-content {
@@ -146,8 +107,12 @@
           width: 100%;
           .services-slide {
             width: 100%;
-            height: auto;
+            height: 500px;
             aspect-ratio: 16 / 9;
+
+            @include md {
+              height: auto;
+            }
 
             .service_slide {
               width: 100%;
@@ -281,6 +246,103 @@
         p {
           line-height: 1.5;
           font-size: 18px;
+        }
+      }
+    }
+
+    hr {
+      margin: 10px 0px;
+      background: $primary-color;
+      height: 2px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .service-films {
+      h2 {
+        text-align: center;
+        margin: 30px 0px;
+        @include sm {
+          font-size: 25px;
+        }
+      }
+
+      .subscribe-btn {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 30px;
+        gap: 10px;
+        margin-bottom: 10px;
+        p {
+          font-size: 20px;
+          font-weight: 500;
+          color: $primary-color;
+          text-align: center;
+
+          @include md {
+            font-size: 16px;
+          }
+
+          @include sm {
+            font-size: 14px;
+          }
+        }
+
+        .sub-btn {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          padding: 12px 24px;
+          font-size: 16px;
+          font-weight: 600;
+          color: #fff;
+          background-color: #ff0000;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          transition: background 0.3s ease, transform 0.2s ease;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+
+          &:hover {
+            background-color: #cc0000;
+            transform: scale(1.05);
+          }
+
+          &:active {
+            background-color: #990000;
+            transform: scale(0.98);
+          }
+
+          &:focus {
+            outline: none;
+            box-shadow: 0 0 8px rgba(255, 0, 0, 0.8);
+          }
+
+          @include md {
+            padding: 10px 20px;
+            font-size: 14px;
+          }
+
+          @include sm {
+            padding: 8px 16px;
+            font-size: 12px;
+          }
+        }
+      }
+
+      .service-videos {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+
+        @include xl {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include md {
+          grid-template-columns: repeat(1, 1fr);
         }
       }
     }

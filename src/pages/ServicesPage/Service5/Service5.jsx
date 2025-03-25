@@ -1,33 +1,28 @@
 import "./Service5.scss";
-import ServicePageSidebar from "../ServicePageSidebar/ServicePageSidebar";
 import { FaCheck } from "react-icons/fa";
 import ServiceContact from "../../../components/ServiceContact/ServiceContact";
 import { service5Data, service5Steps } from "../../../assets/servicesData";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
 
-import { useQuery } from "@tanstack/react-query"; // ✅ React Query
+import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { baseUrl } from "../../../main";
 import toast from "react-hot-toast";
-import Loader from "../../../components/Loader/Loader"; // ✅ Loader component
+import Loader from "../../../components/Loader/Loader";
 import SEO from "../../../SEO/SEO";
+import { serviceimages } from "../../../assets/data";
 
 const Service5 = () => {
   const contentRef = useRef(null);
+  const [selectedImg, setSelectedImg] = useState(null);
 
-  // ✅ Scroll to Content
-  const scrollToContent = () => {
-    if (contentRef.current) {
-      contentRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+ 
 
-  // ✅ Fetch Service Images with Proper Error Handling
   const fetchServiceImages = async () => {
     try {
       const { data } = await axios.get(
@@ -59,7 +54,6 @@ const Service5 = () => {
     }
   };
 
-  // ✅ Use React Query for Fetching with Error Handling & Caching
   const {
     data: serviceImages,
     isLoading: imagesLoading,
@@ -86,26 +80,20 @@ const Service5 = () => {
       <div className="service5-top-banner">
         <div className="service5-banner">
           <div className="service5-banner-desc">
-            <h1>Service Details</h1>
+            <h1>Civil Marriage Photography</h1>
           </div>
         </div>
       </div>
 
       <div className="service5-container">
-        <div className="service5-container-sidebar">
-          <ServicePageSidebar onSidebarClick={scrollToContent} />
-        </div>
-
         <div className="service5-container-content" ref={contentRef}>
           <div className="service5-container-content-top">
-            {/* ✅ Loading State */}
             {imagesLoading && (
               <div className="service5-loader-container">
                 <Loader loaderSize="serviceLoader" />
               </div>
             )}
 
-            {/* ✅ Error State */}
             {imagesError && (
               <div className="service5-error-container">
                 <div className="service5-error-desc">
@@ -114,8 +102,6 @@ const Service5 = () => {
                 </div>
               </div>
             )}
-
-            {/* ✅ Display Swiper if data is available */}
             {serviceImages && serviceImages.length > 0 ? (
               <div className="services-img-slide">
                 <Swiper
@@ -174,8 +160,34 @@ const Service5 = () => {
             </ul>
             <p>Let us tell your civil marriage story beautifully!</p>
           </div>
+
+          <hr />
+          <div className="service-images">
+            <h2>Our Civil Marriage Gallery</h2>
+            <div className="service-image-cards">
+              {serviceimages.map((item, index) => (
+                <div className="service-image-card" key={index}>
+                  <img
+                    src={item.img}
+                    alt="service image"
+                    loading="lazy"
+                    onClick={() => setSelectedImg(item.img)}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
+
+      {selectedImg && (
+        <div className="image-modal" onClick={() => setSelectedImg(null)}>
+          <img src={selectedImg} alt="Fullscreen Preview" loading="lazy" />
+          <span className="close-btn" onClick={() => setSelectedImg(null)}>
+            ×
+          </span>
+        </div>
+      )}æ
 
       <div className="service-contact">
         <ServiceContact />

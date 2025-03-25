@@ -35,7 +35,7 @@
 
         .event-title {
           font-size: 18px;
-          color: #585858;
+          color: $primary-color;
 
           &.time {
             font-size: 18px;
@@ -120,7 +120,13 @@
             padding: 70px 0px 15px 15px;
           }
         }
-
+        
+        &.weddingtype{
+           .select-dropdown{
+            width: 200px;
+           top:  -170px !important;
+           }
+        }
         &.select-option {
           p {
             font-size: 18px;
@@ -197,7 +203,11 @@
       .form-group:nth-child(9),
       .form-group:nth-child(10),
       .form-group:nth-child(11),
-      .form-group:nth-child(12) {
+      .form-group:nth-child(12),
+      .form-group:nth-child(13),
+      .form-group:nth-child(14)
+
+      {
         grid-column: span 2;
       }
 

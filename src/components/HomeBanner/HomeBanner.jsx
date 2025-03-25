@@ -7,15 +7,20 @@ import "swiper/css/effect-fade";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
+import { BsArrowUpRight } from "react-icons/bs";
+
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { baseUrl } from "../../main";
 import Loader from "../../components/Loader/Loader";
 import { toast } from "react-hot-toast";
+import { bigBanner } from "../../assets/data";
+import { Link } from "react-router-dom";
 
 const HomeBanner = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 480);
 
+  const [initialized, setInitialized] = useState(false);
   // ✅ Function to fetch banners with better error handling
   const fetchBanners = async () => {
     try {
@@ -100,12 +105,23 @@ const HomeBanner = () => {
         }}
         className="swiper-container"
       >
-        {data?.length > 0 ? (
-          data.map((slide, index) => (
+        {bigBanner?.length > 0 ? (
+          bigBanner.map((slide, index) => (
             <SwiperSlide key={index} className="slide">
               <div className="homeBanner-imgs">
                 <img src={slide.image} alt="Banner" loading="lazy" />
               </div>
+              <Link to={slide.link}>
+                <div
+                  className={`homeBanner-desc ${
+                    initialized && index === activeIndex ? "animate" : ""
+                  }`}
+                >
+                  <h6>Wedding Agency</h6>
+                  <h1>{slide.title}</h1>
+                  <p>{slide.desc}</p>
+                </div>
+              </Link>
             </SwiperSlide>
           ))
         ) : (

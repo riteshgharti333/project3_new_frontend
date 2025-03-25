@@ -86,33 +86,60 @@ export const bigBanner = [
   {
     id: 1,
     image: banner1,
+    title: "Wedding Photography",
+    desc: "Capturing timeless moments of love, joy, and celebration with stunning wedding photography.",
+    link: "/wedding-photography",  // ✅ Added link
   },
   {
     id: 2,
     image: banner2,
+    title: "Wedding Cinematography",
+    desc: "Crafting cinematic love stories with elegance and emotion in every frame.",
+    link: "/wedding-cinematography",  // ✅ Added link
   },
   {
     id: 3,
     image: banner3,
+    title: "Pre-Wedding Film",
+    desc: "Beautifully capturing your love story before the big day unfolds",
+    link: "/pre-wedding-film",  // ✅ Added link
   },
   {
     id: 4,
     image: banner4,
+    title: "Civil Marriage Photography",
+    desc: "Elegant captures of your civil marriage with timeless photography.",
+    link: "/civil-marriage-photography",  // ✅ Added link
   },
   {
     id: 5,
     image: banner5,
+    title: "Engagement Photography",
+    desc: "Cherishing your engagement with stunning couple portraits.",
+    link: "/engagement-photography-couple-portraits",  // ✅ Added link
   },
   {
     id: 6,
     image: banner6,
+    title: "Birthday Photography",
+    desc: "Capturing joyful moments of your special day.",
+    link: "/birthday-photography",  // ✅ Added link
   },
   {
     id: 7,
     image: banner7,
+    title: "Baby Shower Photography",
+    desc: "Preserving the precious moments of your baby shower.",
+    link: "/baby-shower-photography",  // ✅ Added link
+  },
+  {
+    id: 8,   // Corrected duplicate ID
+    image: banner7,
+    title: "Graduation Photography",
+    desc: "Celebrating your academic milestone with timeless photos.",
+    link: "/graduation-photography",  // ✅ Added link
   },
 ];
-
 export const smBanner = [
   {
     id: 1,
@@ -634,6 +661,119 @@ export const homePortfolio = [
   },
   {
     img: image6,
+  },
+  {
+    img: image1,
+  },
+  {
+    img: image2,
+  },
+  {
+    img: image3,
+  },
+  {
+    img: image4,
+  },
+];
+
+// Wedding Type
+
+export const weddingtype = ["Hindu", "Sikh", "Muslim", "Church", "Civil"];
+
+const wedding1 =
+  "https://images.pexels.com/photos/29967503/pexels-photo-29967503/free-photo-of-elegant-indian-wedding-couple-on-ornate-stage.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
+
+const wedding2 =
+  "https://images.pexels.com/photos/29547553/pexels-photo-29547553/free-photo-of-joyful-sikh-wedding-couple-by-brampton-fountain.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
+
+const wedding3 =
+  "https://images.pexels.com/photos/18575266/pexels-photo-18575266/free-photo-of-newlyweds-sit-on-bench-among-flowers.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
+
+const wedding4 =
+  "https://images.pexels.com/photos/31290001/pexels-photo-31290001/free-photo-of-romantic-wedding-couple-in-atlixco-mexico-outdoors.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
+
+const wedding5 =
+  "https://images.pexels.com/photos/30657142/pexels-photo-30657142/free-photo-of-elegant-bride-s-hand-with-wedding-bouquet.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
+
+export const weddingSlider = [
+  {
+    title: "The Divine Union – Moments of Your Hindu Wedding",
+    img: wedding1,
+    link: "/hindu-wedding",
+  },
+  {
+    title: "Blessed by the Guru – Moments from Your Sikh Wedding",
+    img: wedding2,
+    link: "/hindu-wedding",
+  },
+  {
+    title: "Nikah Mubarak – Your Beautiful Muslim Wedding Tale",
+    img: wedding3,
+    link: "/hindu-wedding",
+  },
+  {
+    title: "Blessed by Faith – Moments from Your Church Ceremony",
+    img: wedding4,
+    link: "/hindu-wedding",
+  },
+  {
+    title: "Legally in Love – Moments from Your Civil Ceremony",
+    img: wedding5,
+    link: "/hindu-wedding",
+  },
+];
+
+export const serviceimages = [
+  {
+    img: image5,
+  },
+  {
+    img: image6,
+  },
+  {
+    img: image1,
+  },
+  {
+    img: image2,
+  },
+  {
+    img: image3,
+  },
+  {
+    img: image4,
+  },
+  {
+    img: image1,
+  },
+  {
+    img: image2,
+  },
+  {
+    img: image3,
+  },
+  {
+    img: image4,
+  },
+  {
+    img: image3,
+  },
+  {
+    img: image4,
+  },
+  {
+    img: image2,
+  },
+  {
+    img: image3,
+  },
+  {
+    img: image4,
+  },
+  {
+    img: image3,
+  },
+  {
+    img: image4,
   },
   {
     img: image1,

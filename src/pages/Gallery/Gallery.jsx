@@ -69,7 +69,7 @@ const Gallery = () => {
       <div className="gallery-top-banner">
         <div className="gallery-banner">
           <div className="gallery-banner-desc">
-            <h1>Our Projects</h1>
+            <h1>Portfolio</h1>
           </div>
         </div>
       </div>

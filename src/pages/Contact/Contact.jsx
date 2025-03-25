@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import "./Contact.scss";
 import { IoIosArrowDown } from "react-icons/io";
-import { selectOptions } from "../../assets/data";
+import { selectOptions, weddingtype } from "../../assets/data";
 import ContactSection from "../../components/ContactSection/ContactSection";
 
 import toast from "react-hot-toast";
@@ -13,8 +13,13 @@ import SEO from "../../SEO/SEO";
 const Contact = () => {
   const [openSelect, setOpenSelect] = useState(false);
   const [selectedOption, setSelectedOption] = useState("");
+
   const [isValid, setIsValid] = useState(true);
   const selectRef = useRef(null);
+  const weddingRef = useRef(null);
+  const [weddingOption, setWeddingOption] = useState("");
+
+  const [weddingType, setWedingType] = useState(false);
 
   const location = useLocation();
 
@@ -50,6 +55,11 @@ const Contact = () => {
     setSelectedOption(option);
     setIsValid(true);
     setOpenSelect(false);
+  };
+
+  const handleWeddngSelection = (option) => {
+    setWeddingOption(option);
+    setIsValid(true), setWedingType(false);
   };
 
   useEffect(() => {
@@ -97,6 +107,10 @@ const Contact = () => {
     e.preventDefault();
 
     if (!selectedOption) {
+      setIsValid(false);
+      return;
+    }
+    if (!weddingOption) {
       setIsValid(false);
       return;
     }
@@ -232,7 +246,7 @@ const Contact = () => {
               required
             />
             <label>
-              Vanue Address <span className="required">(Required)</span>
+              Location <span className="required">(Required)</span>
             </label>
           </div>
 
@@ -246,20 +260,6 @@ const Contact = () => {
             />
             <label>
               Number of Guests <span className="required">(Required)</span>
-            </label>
-          </div>
-
-          <div className="form-group">
-            <input
-              type="text"
-              name="additionalRequirements"
-              value={formData.eventDetail.additionalRequirements}
-              onChange={handleChange}
-              required
-            />
-            <label>
-              Additional Requirements{" "}
-              <span className="required">(Required)</span>
             </label>
           </div>
 
@@ -278,16 +278,66 @@ const Contact = () => {
           </div>
 
           <div className="form-group">
-            <p className="event-title time">
-              Time <span className="required">(Required)</span>
-            </p>
             <input
-              type="time"
-              name="time"
-              value={formData.eventDetail.time}
+              type="text"
+              name="venueAddress"
+              value={formData.eventDetail.venueAddress}
               onChange={handleChange}
               required
             />
+            <label>
+              Videography Photography or Both?{" "}
+              <span className="required">(Required)</span>
+            </label>
+          </div>
+
+          <div className="form-group">
+            <textarea
+              type="text"
+              name="additionalRequirements"
+              value={formData.eventDetail.additionalRequirements}
+              onChange={handleChange}
+              required
+              style={{ height: "100px" }}
+            />
+            <label>
+              Message
+              <span className="required">(Required)</span>
+            </label>
+          </div>
+
+          <div
+            className="form-group select-option weddingtype"
+            ref={weddingRef}
+          >
+            <p>
+              Wedding Type
+              <span className="required">(Required)</span>
+            </p>
+            <div className="select-options">
+              <span
+                className={`select-dropdown-title ${
+                  !isValid ? "error-border" : ""
+                }`}
+                onClick={() => setWedingType(!weddingType)}
+              >
+                {weddingOption || "Select an option"}
+                <IoIosArrowDown className="select-options-icon" />
+              </span>
+              {weddingType && (
+                <div className="select-dropdown">
+                  {weddingtype.map((item, index) => (
+                    <span
+                      key={index}
+                      onClick={() => handleWeddngSelection(item)}
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+            {!isValid && <p className="error-text">This field is required</p>}
           </div>
 
           <div className="form-group select-option" ref={selectRef}>

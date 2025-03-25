@@ -24,6 +24,7 @@ import { ScrollProvider, useScrollContext } from "./context/ScrollContext.jsx";
 
 import { HelmetProvider } from "react-helmet-async";
 import ReactQueryProvider from "../utils/ReactQueryProvider.jsx";
+import Wt from "./pages/WeddingTypePage/Wt.jsx";
 
 function App() {
   const ScrollToTop = () => {
@@ -75,6 +76,9 @@ function App() {
                 <Route path="/graduation-photography" element={<Service9 />} />
 
                 {/* services */}
+
+                {/* type */}
+                <Route path="/hindu-wedding" element={<Wt />} />
               </Routes>
               <Footer />
 

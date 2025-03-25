@@ -8,7 +8,7 @@ const AboutAgency = () => {
   return (
     <div className="aboutAgency">
       <div className="aboutAgency-top">
-        <h1>About Agency</h1>
+        <div></div>
         <Link to={"/contact-us"}>
           <button className="book-kimono">
             Book Us Now
@@ -52,8 +52,8 @@ const AboutAgency = () => {
         <div className="aboutAgency-bottom-right">
           <h2>About TK Productions</h2>
           <p className="about-desc1">
-            Welcome to TK Production Film, where your most precious moments
-            come to life with cinematic excellence. Founded by Taufeq Khan, a
+            Welcome to TK Production Film, where your most precious moments come
+            to life with cinematic excellence. Founded by Taufeq Khan, a
             visionary filmmaker with over 16 years of experience, our team has
             mastered the art of storytelling through stunning wedding
             videography and photography.

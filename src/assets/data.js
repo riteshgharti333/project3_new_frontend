@@ -82,62 +82,86 @@ export const portfolioImgs = [
   { img: card_1 },
 ];
 
+import banner10 from "../assets/images/bannerDesc/banner9.jpeg";
+import banner9 from "../assets/images/bannerDesc/banner8.jpeg";
+import banner11 from "../assets/images/bannerDesc/banner11.jpg";
+
+import mainBanner1 from "../assets/images/mainBanner/mainBanner1.jpeg";
+import mainBanner2 from "../assets/images/mainBanner/mainBanner2.jpeg";
+import mainBanner3 from "../assets/images/mainBanner/mainBanner3.jpeg";
+import mainBanner4 from "../assets/images/mainBanner/mainBanner4.jpeg";
+import mainBanner5 from "../assets/images/mainBanner/mainBanner5.jpeg";
+import mainBanner6 from "../assets/images/mainBanner/mainBanner6.jpeg";
+import mainBanner7 from "../assets/images/mainBanner/mainBanner7.jpeg";
+import mainBanner8 from "../assets/images/mainBanner/mainBanner8.jpeg";
+import mainBanner9 from "../assets/images/mainBanner/mainBanner9.jpeg";
+
 export const bigBanner = [
   {
     id: 1,
-    image: banner1,
+    image: mainBanner6,
     title: "Wedding Photography",
     desc: "Capturing timeless moments of love, joy, and celebration with stunning wedding photography.",
-    link: "/wedding-photography",  // ✅ Added link
+    link: "/wedding-photography",
   },
   {
     id: 2,
-    image: banner2,
+    image: mainBanner8,
     title: "Wedding Cinematography",
     desc: "Crafting cinematic love stories with elegance and emotion in every frame.",
-    link: "/wedding-cinematography",  // ✅ Added link
+    link: "/wedding-cinematography",
   },
+
   {
     id: 3,
-    image: banner3,
+    image: mainBanner9,
     title: "Pre-Wedding Film",
     desc: "Beautifully capturing your love story before the big day unfolds",
-    link: "/pre-wedding-film",  // ✅ Added link
+    link: "/pre-wedding-film",
   },
+
   {
     id: 4,
-    image: banner4,
-    title: "Civil Marriage Photography",
-    desc: "Elegant captures of your civil marriage with timeless photography.",
-    link: "/civil-marriage-photography",  // ✅ Added link
+    image: mainBanner7,
+    title: "Pre-Wedding Photography",
+    desc: "Beautifully capturing your love story before the big day with pre-wedding photography.",
+    link: "/pre-wedding-photography",
   },
+
   {
     id: 5,
-    image: banner5,
-    title: "Engagement Photography",
-    desc: "Cherishing your engagement with stunning couple portraits.",
-    link: "/engagement-photography-couple-portraits",  // ✅ Added link
+    image: mainBanner5,
+    title: "Civil Marriage Photography",
+    desc: "Elegant captures of your civil marriage with timeless photography.",
+    link: "/civil-marriage-photography",
   },
   {
     id: 6,
-    image: banner6,
-    title: "Birthday Photography",
-    desc: "Capturing joyful moments of your special day.",
-    link: "/birthday-photography",  // ✅ Added link
+    image: mainBanner4,
+    title: "Engagement Photography",
+    desc: "Cherishing your engagement with stunning couple portraits.",
+    link: "/engagement-photography-couple-portraits",
   },
   {
     id: 7,
-    image: banner7,
-    title: "Baby Shower Photography",
-    desc: "Preserving the precious moments of your baby shower.",
-    link: "/baby-shower-photography",  // ✅ Added link
+    image: mainBanner1,
+    title: "Birthday Photography",
+    desc: "Capturing joyful moments of your special day.",
+    link: "/birthday-photography",
   },
   {
-    id: 8,   // Corrected duplicate ID
-    image: banner7,
+    id: 8,
+    image: mainBanner2,
+    title: "Baby Shower Photography",
+    desc: "Preserving the precious moments of your baby shower.",
+    link: "/baby-shower-photography",
+  },
+  {
+    id: 9,
+    image: mainBanner3,
     title: "Graduation Photography",
     desc: "Celebrating your academic milestone with timeless photos.",
-    link: "/graduation-photography",  // ✅ Added link
+    link: "/graduation-photography",
   },
 ];
 export const smBanner = [

@@ -82,10 +82,6 @@ export const portfolioImgs = [
   { img: card_1 },
 ];
 
-import banner10 from "../assets/images/bannerDesc/banner9.jpeg";
-import banner9 from "../assets/images/bannerDesc/banner8.jpeg";
-import banner11 from "../assets/images/bannerDesc/banner11.jpg";
-
 import mainBanner1 from "../assets/images/mainBanner/mainBanner1.jpeg";
 import mainBanner2 from "../assets/images/mainBanner/mainBanner2.jpeg";
 import mainBanner3 from "../assets/images/mainBanner/mainBanner3.jpeg";

@@ -3,11 +3,6 @@
 .wt {
   .wt-banner {
     padding: 100px 30px 00px 30px;
-
-    @include md {
-      padding: 100px 10px 0px 10px;
-    }
-
     background-image: url("../../assets/images/wt.jpeg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -15,6 +10,12 @@
     height: 400px;
     position: relative;
     z-index: 1;
+
+    @include md {
+      padding: 100px 10px 0px 10px;
+    }
+
+  
 
     &::after {
       content: "";
